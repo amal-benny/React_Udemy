@@ -148,7 +148,7 @@ function getBook(id) {
 const book = getBook(2);
 book;
 
-const { title, author, pages, genres, hasMovieAdaptation } = book;
+const { title, author, pages, genres, hasMovieAdaptation, publicationDate } = book;
 
 console.log(title, author, genres);
 
@@ -162,6 +162,20 @@ console.log(primaryGenre, otherGenres);
 const newG = [...genres, 'epic fantasy']
 newG;
 
-const updatedBook = {...book, moviePublicationDate: "2001-12-19", pages:16520};
+const updatedBook = {...book, moviePublicationDate: "2001-12-19", pages:1089};
 updatedBook;
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate))
+
+const summary = `${title}, ${pages}--pages long book, was written by ${author} and published in ${getYear(publicationDate)}`
+summary;
+
+const range = pages > 1000 ? "Over a thousand"  :  "less than 1000";
+range;
+
 
