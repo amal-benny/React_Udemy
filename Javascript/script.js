@@ -144,8 +144,10 @@ function getBook(id) {
 }
 
 //Destructuring
+const book = getBook(3);
 
-const book = getBook(2);
+/*
+const book = getBook(3);
 book;
 
 const { title, author, pages, genres, hasMovieAdaptation, publicationDate } = book;
@@ -172,10 +174,86 @@ updatedBook;
 const getYear = (str) => str.split("-")[0];
 console.log(getYear(publicationDate))
 
-const summary = `${title}, ${pages}--pages long book, was written by ${author} and published in ${getYear(publicationDate)}`
+const summary = `${title}, ${pages}--pages long book, was written by ${author} and published in
+ ${getYear(publicationDate)}`
 summary;
+
 
 const range = pages > 1000 ? "Over a thousand"  :  "less than 1000";
 range;
+console.log(`The book has ${range} pages`)
 
+console.log(true && 'some String');
+console.log(hasMovieAdaptation && "This has a movie")
 
+console.log(book.translations.spanish);
+
+const Spanish = book.translations.spanish || "Not Translated into spanish";
+Spanish;
+
+const dataw = book.translations.spanish ?? "no data";
+dataw;
+
+function getTotal(book) {
+  const goodread = book.reviews.goodreads.reviewsCount;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+} 
+
+console.log(getTotal(book))
+*/
+
+// const books = getBooks();
+// books;
+
+// const titles = books.map((book) => book.title);
+// titles;
+
+// const essentials = books.map(book => ({
+//   title: book.title,
+//   author: book.author,
+// }));
+// essentials;
+
+// const long = books.filter(book => book.pages > 500).filter(book => book.hasMovieAdaptation);
+// long;
+
+// const  pagesall = books.reduce((acc, book)=> acc + book.pages , 0);
+// pagesall;
+
+// const x = [3,5,2,64,23,7,24];
+// const sorted =x.slice().sort((a,b)=> b-a);
+// sorted;
+// x;
+
+// const sortpage = books.slice().sort((a,b) => a.id - b.id);
+// sortpage;
+
+// const newBook = {
+//   id:6,
+//   title: "Wings of Fire",
+//   author: "APJ Abdul Kalam"
+// };
+
+// const BooksAfter = [...books, newBook];
+// BooksAfter;
+
+// const bookdelete = BooksAfter.filter(book => book.id !== 3);
+// bookdelete;
+
+// const bookupdate = bookdelete.map(book => book.id === 1 ? {...book, pages : 12} : book);
+// bookupdate;
+
+// fetch("https://jsonplaceholder.typicode.com/todos").then(res =>res.json()).then(data => console.log(data));
+
+// console.log("Hello World!");
+
+// async function getTodos() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+//   const data = await res.json();
+//   console.log(data);
+
+//   return data;
+// }
+// const todos = getTodos();
+// console.log(todos);
