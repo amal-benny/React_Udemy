@@ -58,59 +58,61 @@ function App() {
 }
 
 function Header() {
-  // const style = {color: "blue", fontSize: "48px", textTransform: "uppercase"};
-  // const style = {};
   return (
     <header className="header">
-      <h1>Pizza Hub Number.06</h1>
+      <h1>Pizzaria and Co</h1>
     </header>
   );
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  // const pizzas =[];
-  const numPizzaz = pizzas.length;
-
+  const pizza = pizzaData.length;
   return (
     <main className="menu">
       <h2>Our Menu</h2>
 
-      {numPizzaz > 0 ? (
+      {pizza > 0 ? (
         <>
           <p>
-            Just an quite ordinary place to eat your pizzaz.. Anywere anyplace
-            these six suits your needs quite good do you know......
+            Authentic italian Cuisine. 6 creative dishes to choose from . All
+            from our stone oven, organic, all delicious.
           </p>
           <ul className="pizzas">
-            {pizzas.map((pizza) => (
+            {pizzaData.map((pizza) => (
               <Pizza pizzaObj={pizza} key={pizza.name} />
             ))}
           </ul>
         </>
       ) : (
-        <p>We' re still working on our menu. Soryyyyyyyy :)</p>
+        <p>We are still working on our menu</p>
       )}
 
-      {/* <Pizza name="Pizza Prosciutto" ingredients="Tomato, mozarella, ham, aragula, and burrata cheese" 
-        photoName="pizzas/prosciutto.jpg" price={10}/>
-
-        <Pizza name="Pizza Funghi" ingredients="Tomato, mozarella, mushrooms, and onion"
-        photoName="pizzas/funghi.jpg" price={20} /> */}
+      {/* <Pizza
+        name="pizza Spinaci"
+        ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        photoName="pizzas/prosciutto.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Spinaci"
+        ingredients="Tomato, "
+        photoName="pizzas/funghi.jpg"
+        price={90}
+      /> */}
     </main>
   );
 }
 
 function Pizza({ pizzaObj }) {
   console.log(pizzaObj);
-  // if(pizzaObj.soldOut) return null;
-
+  // if (pizzaObj.soldOut) return null;
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
-      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <img src={pizzaObj.photoName} alt="Pizza" />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
+
         <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
@@ -119,38 +121,33 @@ function Pizza({ pizzaObj }) {
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 12;
+  const openHour = 15;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
-  // if (!isOpen)
-  //   return (
-  //     <p>We're happy to welcome you between {openHour}:00 and {closeHour}:00</p>
-  // );
+  //   if (hour >= openHour && hour <= closeHour) alert("We are Open");
+  //   else alert("We are Closed");
 
   return (
     <footer className="footer">
       {isOpen ? (
         <Order closeHour={closeHour} openHour={openHour} />
       ) : (
-        <p>
-          We're happy to welcome you between {openHour}:00 and {closeHour}:00
-        </p>
+        <p>We're happy to welcome you on {openHour}:00</p>
       )}
     </footer>
   );
-  // return React.createElement('footer', null, "We are Currently Open!");
 }
 
 function Order({ closeHour, openHour }) {
   return (
     <div className="order">
       <p>
-        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
-        online.
+        We're open from {openHour} untill {closeHour}:00. Come visit us or order
+        online
       </p>
-      <button className="btn">Order Now</button>
+      <button className="btn">Order</button>
     </div>
   );
 }
